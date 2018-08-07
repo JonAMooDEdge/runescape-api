@@ -14,7 +14,15 @@ router.get('/:player', (req, res) =>{
     getRsPlayer(playerName).then(p => res.json(p));
 })
 
+const hello = express.Router();
+
+hello.get('/', (req, res)=> {
+  res.json({message: "Hi"});
+});
+
 app.use('/api/player', router);
+
+app.use('/api/hello', hello);
 
 app.listen(3001, () => {
     console.log("Server listening on port 3001");
